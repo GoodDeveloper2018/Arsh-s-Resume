@@ -1,0 +1,171 @@
+%-------------------------
+% Resume in Latex
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,9.5pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-.72in}
+\addtolength{\textheight}{1.45in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2.5pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Arsh Purohit} \\ \vspace{1pt}
+    \small 347-544-7008 $|$
+    \href{mailto:arshpurohit@gmail.com}{\underline{arshpurohit@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/arshp}{\underline{linkedin.com/in/arshp}} $|$
+    \href{https://github.com/GoodDeveloper2018}{\underline{github.com/arsh}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Northeastern University --- Khoury College of Computer Sciences}{Boston, MA}
+      {B.S. Computer Science \& Mathematics}{Expected May 2030}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Machine Learning Intern}{Jun. 2024 -- Sep. 2024}
+      {Certa.ai}{Saratoga, CA}
+      \resumeItemListStart
+        \resumeItem{Built and tested REST APIs in Python against the company's production AI/ML backend, validating request handling, error paths, and response contracts}
+        \resumeItem{Authored internal technical documentation mapping service endpoints to upstream data pipelines, tracing model-serving and ingestion flow through a large-scale ML backend}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Student Researcher}{Feb. 2024 -- Jun. 2026}
+      {York College, CUNY}{Queens, NY}
+      \resumeItemListStart
+        \resumeItem{Designed a physics-informed multimodal ensemble fusing solar wind, magnetometer, GNSS integrity, and operational flight data to model geomagnetic storm impact on navigation reliability and flight delays}
+        \resumeItem{Constrained ensemble behavior with ionospheric physics to prevent confident misprediction during storms; handled severe class imbalance and temporal validation in Python; published in a peer-reviewed journal}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {AWS Cloud Engineering \& AI Program}{Aug. 2025 -- Sep. 2025}
+      {Amazon Web Services (selected via 1st-place national hackathon)}{Manhattan, NY}
+      \resumeItemListStart
+        \resumeItem{Designed multi-AZ VPC architectures with public/private/isolated subnets, route tables, Internet and NAT Gateways, security groups, and NACLs for fault-tolerant deployment}
+        \resumeItem{Built retrieval-augmented generation pipelines on Bedrock and SageMaker, covering embedding models, vector stores, chunking strategy, and inference tuning; evaluated compute (EC2/containers/serverless) and relational vs. NoSQL tradeoffs against Well-Architected principles}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Dual-Market Arbitrage Engine} $|$ \emph{FastAPI, SQLAlchemy, TimescaleDB, Redis, Prometheus, Docker}}{Jan. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Designed and deployed an async engine ingesting order books from two prediction-market venues concurrently to identify cross-venue mispricings under live latency constraints; instrumented with Prometheus over TimescaleDB hypertables}
+            \resumeItem{Modeled per-venue fee structures using a parabolic $P(1-P)$ formulation, eliminating phantom edge that survives naive spread calculation but disappears at execution}
+            \resumeItem{Audited and hardened silent-failure modes: reconciled ghost positions from poll timeouts, connected a circuit breaker that was defined but never invoked, and added a hard net-EV gate rejecting negative-expectancy trades}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{IMC Prosperity 4 --- Algorithmic Trading Competition} $|$ \emph{Python, NumPy, pandas}}{Apr. 2025}
+          \resumeItemListStart
+            \resumeItem{Owned all algorithmic implementation for a three-person team across market making, pairs trading, and options pricing; finished \textbf{42nd of 12,600+ teams} in manual trading (top \textbf{0.3\%})}
+            \resumeItem{Traced a negative-PnL options submission to backtest assumptions unsupported by live market behavior; replaced it with a simpler intrinsic-value market-making strategy that held under real conditions}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Soilify --- AI/IoT Precision Agriculture} $|$ \emph{ESP32, Lambda, SageMaker, DynamoDB}}{Mar. -- Jun. 2025}
+          \resumeItemListStart
+            \resumeItem{Built a closed-loop smart farming system end to end over 12 weeks (\textbf{1st Place, National AWS BEN Hackathon}): an ESP32 sensor array posts upstream via API Gateway to Lambda, which invokes SageMaker models, persists to DynamoDB, and returns actuator commands the device polls and executes}
+            \resumeItem{Improved crop-yield model performance from \textbf{0.78 to 0.94 AUC} (RMSE 0.577 $\rightarrow$ 0.153) via custom feature engineering, outlier handling, and preprocessing transformations}
+            \resumeItem{Designed dual POST/GET API contracts serving both the embedded device and a companion mobile app, enabling live monitoring and manual override of automated irrigation decisions}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS \& HONORS-----------
+\section{Publications \& Honors}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Publication}{: ``Analyzing the Effects of Geomagnetic Storms on Flight Disruptions and Navigation Systems via Physics-Informed Multimodal Ensemble Machine Learning,'' \textit{Journal of Space Weather and Space Climate} (peer-reviewed)} \\ \vspace{2pt}
+     \textbf{Honors}{: 1st Place National AWS BEN Hackathon $|$ 2nd Place Physics \& NASA Earth System Science Award, NYCSEF (2/700), ISEF qualifier $|$ USACO Gold $|$ Microsoft City-Wide Hackathon Winner $|$ Top 5, Lockheed Martin CyberQuest $|$ Founder \& Lead, Brooklyn Tech Competitive Programming Club (ACSL Finals)}
+    }}
+ \end{itemize}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, Java, JavaScript/TypeScript, SQL} \\
+     \textbf{Backend \& Data}{: FastAPI, async SQLAlchemy, Flask, REST API design, PostgreSQL, TimescaleDB, DynamoDB, Redis} \\
+     \textbf{Cloud \& Infra}{: AWS (Lambda, API Gateway, SageMaker, Bedrock, EC2, S3, VPC, IAM), Docker, Prometheus, Git} \\
+     \textbf{ML}{: scikit-learn, PyTorch, pandas, NumPy, feature engineering, temporal validation, RAG pipelines, ESP32/embedded}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
